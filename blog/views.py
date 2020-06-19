@@ -5,9 +5,13 @@ from .forms import PostForm
 from django.shortcuts import redirect
 
 # Create your views here.
+def home_page(request):
+	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')[:3]
+	return render(request, 'blog/home_page.html', {'posts': posts})
+
 def post_list(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-	return render(request, 'blog/post_list.html', {'posts':posts})
+	return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
 	post = get_object_or_404(Post, pk=pk)
@@ -15,10 +19,12 @@ def post_detail(request, pk):
 
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES or None)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            text = form.cleaned_data['text']
+            post.summary = text.splitlines()[0]
             post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
@@ -29,13 +35,26 @@ def post_new(request):
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES or None, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            text = form.cleaned_data['text']
+            post.summary = text.splitlines()[0]
             post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def post_delete(request, pk):
+	post = get_object_or_404(Post, pk=pk)
+	post.delete()
+	return redirect('post_list')
+
+def about_page(request):
+	return render(request, 'blog/about_page.html')
+
+def contact_page(request):
+	return render(request, 'blog/contact_page.html')

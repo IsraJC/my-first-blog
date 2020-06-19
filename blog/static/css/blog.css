@@ -1,21 +1,35 @@
-﻿.page-header {
-    background-color: #DE8E1F;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
+﻿#page-header {
+    padding: 14px;
+	padding-left: 20px;
+	font-size: 18pt;
+	color: #FFFFFF;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #FFFFFF;
-    font-size: 36pt;
-    text-decoration: none;
+body {
+	background-color: #EDEDED;
+	padding-top: 0px;
+	position: relative;
 }
 
 .content {
-    margin-left: 40px;
+    margin-left: 30px;
+	margin-top: 40px;
 }
 
+
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.post-text {
+	padding: 10px 20px;
+}
+
+.post-title {
+	text-align: center;
+	padding-bottom: 10px;
 }
 
 .date {
@@ -30,17 +44,116 @@ h1, h2, h3, h4 {
     width: 100%;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #FFFFFF;
+.blog-buttons, .blog-buttons:hover, .blog-buttons:visited {
+    color: #834B6B;
     float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+    font-size: 20pt;
+    margin-right: 40px;
+	margin-left: -30px;
+	padding: 0px 10px;
+	align: right;
+	margin-top: 30px!important;
+}
+
+#add-button {
+	margin-top: 80px!important;
+	align: right;
+}
+
+#add-button-div, #edit-buttons-div {
+	position: absolute;
+	z-index: 10;
+	right: 0px;
 }
 
 .post {
-    margin-bottom: 70px;
+	background-color: #FFFFFF;
+	margin-bottom: -40px;
+	padding: 20px 40px;
+	max-height: 700px;
+	border-radius: 10px;
+	margin-top: 0px;
+}
+
+#post-row {
+	margin-top: 70px;
+}
+
+.post-detail {
+	margin-bottom: 20px;
+	background-color: #FFFFFF;
+	padding: 20px 40px;
+	border-radius: 10px;
 }
 
 .post h2 a, .post h2 a:visited {
     color: #000000;
+}
+
+#post-image {
+	margin-bottom: 20px;
+	align: center;
+	max-height: 500px;
+}
+
+#post-image-full {
+	margin-bottom: 20px;
+	align: center;
+	width: 100%;
+	
+}
+
+/* header */
+.navbar-custom {
+	background-color: #834B6B;
+	margin-bottom: 0px !important;
+}
+
+/* links on header */
+.nav.navbar-nav.navbar-right a {
+	color: white;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 12pt;
+
+}
+
+/* links on header when hovered */
+.nav.navbar-nav.navbar-right a:hover {
+	color: black;
+	background-color: #A67F95;
+}
+
+.carousel-inner > .item > img {
+  margin: 0 auto;
+  width: 100%
+}
+
+.carousel-inner .item{
+	max-height: 600px;
+}
+
+.carousel-caption {
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.61);
+	width: 100%;
+	align: center;
+	text-align: center;
+	transform: translateX(-20%);
+}
+
+.carousel-caption h3 a {
+	color: white;
+}
+
+.container-fluid {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	position: relative;
+	
+}
+
+.col-md-8 {
+	padding-top: 50px;
 }

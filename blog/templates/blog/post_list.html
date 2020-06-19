@@ -1,13 +1,30 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-	{% for post in posts %}
-		<div class="post">
-			<div class="date">
-				<p>published: {{ post.published_date }}</p>
+
+{% if user.is_authenticated %}
+	<div id="add-button-div">
+		<a href="{% url 'post_new' %}" id="add-button" class="blog-buttons"><span class="glyphicon glyphicon-plus"></span></a>
+	</div>
+{% endif %}
+
+<div class="container-fluid">
+    <div class="row" id="post-row">
+		{% for post in posts %}
+			<div class="col-md-6">
+				<div class="post">
+					<h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+					{% if post.image %}
+						<img class="img-responsive center-block" id="post-image" src="{{ post.image.url }}"></img>
+					{% endif %}
+					<p>{{ post.summary|linebreaksbr }}</p>
+					<div class="date">
+						<p>published: {{ post.published_date }}</p>
+					</div>
+				</div>
 			</div>
-			<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-			<p>{{ post.text|linebreaksbr }}</p>
-		</div>
-	{% endfor %}		
+		{% endfor %}
+    </div>
+ </div>
+	
 {% endblock %}
