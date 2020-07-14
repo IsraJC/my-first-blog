@@ -3,10 +3,5 @@
 /.vscode
 __pycache__
 myenv
-.DS_Store
-mysite/settings.py
-<<<<<<< HEAD
 /static
-=======
-static/admin
->>>>>>> 465dfc8cb5566d30d6ca148b6c13e72477276133
+.DS_Store
