@@ -18,6 +18,36 @@ body {
 	margin-top: 40px;
 }
 
+#about-me-title {
+	align: center;
+	text-align: center;
+	margin-top: -20px;
+}
+
+#about-me-text {
+	font-size: 16px;
+	padding-bottom: 20px;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.contact-icons {
+	width: 30px;
+	height: 30px;
+	margin: 0px 10px;
+}
 
 h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
@@ -56,7 +86,7 @@ h1, h2, h3, h4 {
 }
 
 #add-button {
-	margin-top: 80px!important;
+	margin-top: 100px!important;
 	align: right;
 }
 
@@ -68,11 +98,11 @@ h1, h2, h3, h4 {
 
 .post {
 	background-color: #FFFFFF;
-	margin-bottom: -40px;
 	padding: 20px 40px;
-	max-height: 700px;
 	border-radius: 10px;
 	margin-top: 0px;
+	margin-bottom: 20px;
+	display: inline-block;
 }
 
 #post-row {
@@ -130,7 +160,7 @@ h1, h2, h3, h4 {
 }
 
 .carousel-inner .item{
-	max-height: 600px;
+	max-height: 800px;
 }
 
 .carousel-caption {
@@ -156,4 +186,44 @@ h1, h2, h3, h4 {
 
 .col-md-8 {
 	padding-top: 50px;
+}
+
+.row.make-columns {
+    -moz-column-width: 40em;
+    -webkit-column-width: 40em;
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em; 
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.row.make-columns > div {
+    display: block;
+    padding:  .5rem;
+    width:  100%; 
+}
+
+.footer {
+	position: relative;
+	height: 50px;
+	padding: 10px 0px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #888888;
+	color: white;
+	text-align: center;
+}
+
+.footer a {
+	color: white;
+}
+
+#homepage-container {
+	background-color: white;
+}
+
+#contact-me-container {
+	padding-bottom: 0px;
 }

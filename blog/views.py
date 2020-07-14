@@ -2,15 +2,23 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
+from. models import CV
+from .forms import CVForm
+from .models import WorkExperience
+from .forms import WorkExperienceForm
+from .models import Education
+from .forms import EducationForm
+from .models import Activity
+from .forms import ActivityForm
 from django.shortcuts import redirect
 
 # Create your views here.
 def home_page(request):
-	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')[:3]
+	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
 	return render(request, 'blog/home_page.html', {'posts': posts})
 
 def post_list(request):
-	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 	return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
@@ -53,8 +61,9 @@ def post_delete(request, pk):
 	post.delete()
 	return redirect('post_list')
 
-def about_page(request):
-	return render(request, 'blog/about_page.html')
-
-def contact_page(request):
-	return render(request, 'blog/contact_page.html')
+def cv_page(request, pk):
+	cv = get_object_or_404(CV, pk=pk)
+	work_experience = reversed(WorkExperience.objects.all())
+	education = reversed(Education.objects.all())
+	activities = reversed(Activity.objects.all())
+	return render(request, 'blog/cv_page.html', {'cv':cv, 'work_experience': work_experience, 'education': education, 'activities': activities})

@@ -1,0 +1,130 @@
+﻿{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}
+	<title>CV</title>
+	<meta name="viewport" content="width=device-width"/>
+	<meta name="description" content="The Curriculum Vitae of Isra Jawaid."/>
+	<meta charset="UTF-8"/>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block content %}
+
+	<div class="container-fluid">
+
+		<div id="cv" class="instaFade">
+
+			<div class="mainDetails">
+				<div id="headshot" class="quickFade">
+					<img src="{{ cv.headshot.url }}" alt="Isra Jawaid"/>
+				</div>
+		
+				<div id="name">
+					<h1 id="name_header" class="quickFade delayTwo">{{ cv.name }}</h1>
+					<h2 id="title" class="quickFade delayThree">{{ cv.title }}</h2>
+				</div>
+		
+				<div id="contactDetails" class="quickFade delayFour">
+					<ul>
+						<li>e: <a id="email" href="{{ cv.email }}" target="_blank">{{ cv.email }}</a></li>
+						<li>w: <a id="website" href="{{ cv.website }}">{{ cv.website }}</a></li>
+						<li id="number" >m: {{ cv.number }}</li>	
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div id="mainArea" class="quickFade delayFive">
+
+				<section>
+					<article>
+						<div class="sectionTitle">
+							<h1>Personal Profile</h1>
+						</div>
+				
+						<div class="sectionContent">
+							<p id="personal_profile">{{ cv.personal_profile }}</p>
+						</div>
+					</article>
+					<div class="clear"></div>
+				</section>
+
+				<section>
+					<div class="sectionTitle">
+						<h1>Work Experience</h1>
+					</div>
+					<div class="sectionContent">
+						{% for experience in work_experience %}
+							<article>
+								<h2 id="work_experience_title">{{experience.title}} at {{experience.company}}</h2>
+								<p id="work_experience_duration" class="subDetails">{{ experience.duration }}</p>
+								<p id="work_experience_description">{{ experience.description | safe }}</p>
+							</article>
+						{% endfor %}
+					</div>
+					<div class="clear"></div>
+				</section>
+
+				<section>
+					<div class="sectionTitle">
+						<h1>Education</h1>
+					</div>
+					<div class="sectionContent">
+						{% for e in education %}
+							<article>
+								<h2 id="education_title">
+									{% if e.qualification %} 
+										{{ e.qualification }}, {{ e.institution }}
+									{% else %}
+										{{ e.institution }}
+									{% endif %} 
+								</h2>
+								<p id="education_duration" class="subDetails">{{ e.duration }}</p>
+								<p id="education_description">{{ e.description | safe }}</p>
+							</article>
+						{% endfor %}
+					</div>
+					<div class="clear"></div>
+				</section>
+
+				<section>
+					<div class="sectionTitle">
+						<h1>Key Skills</h1>
+					</div>
+			
+					<div class="sectionContent">
+						<ul class="keySkills">
+							{% for skill in cv.skills %}
+							<li id="skills">{{ skill }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</section>
+
+				<section>
+					<div class="sectionTitle">
+						<h1>Activities</h1>
+					</div>
+					<div class="sectionContent">
+						{% for activity in activities %}
+							<article>
+								<h2 id="activity_title">{{ activity.title }}</h2>
+								<p id="activity_description">{{ activity.description | safe }}</p>
+							</article>
+						{% endfor %}
+					</div>
+					<div class="clear"></div>
+				</section>
+
+			</div>
+
+		</div>
+	</div>
+	
+{% endblock %}

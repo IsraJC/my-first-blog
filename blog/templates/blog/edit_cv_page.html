@@ -1,0 +1,43 @@
+﻿{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}
+	<title>Edit CV</title>
+	<meta name="viewport" content="width=device-width"/>
+	<meta name="description" content="The Curriculum Vitae of Isra Jawaid."/>
+	<meta charset="UTF-8"/>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block content %}
+
+	<div class="container-fluid">
+		<a id="edit_button" class="blog-buttons" href="{% url 'edit_cv_page' pk=cv.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<div id="cv" class="instaFade">
+			<div class="mainDetails">
+				<form method="POST" class="cv-form" enctype='multipart/form-data'>{% csrf_token %}
+					<input type="file" id="upload_headshot" name="headshot" value="{{ cv.headshot.url }}" accept="image/*">
+					<input type="submit">
+					<div id="name">
+						<h1 class="quickFade delayTwo"><input type="text" name="name" value="{{ cv.name }}"></h1>
+						<h2 class="quickFade delayThree">{{ cv.title }}</h2>
+					</div>
+		
+					<div id="contactDetails" class="quickFade delayFour">
+						<ul>
+							<li>e: <a href="mailto:joe@bloggs.com" target="_blank">{{ cv.email }}</a></li>
+							<li>w: <a href="http://www.bloggs.com">{{ cv.wesbite }}</a></li>
+							<li>m: {{ cv.number }}</li>	
+						</ul>
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}
