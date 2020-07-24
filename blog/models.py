@@ -75,3 +75,25 @@ class Activity(models.Model):
 
 	def __str__(self):
 		return self.title
+
+
+class Calligraphy(models.Model):
+	description = models.TextField(default='')
+	image = models.ImageField(upload_to='media/calligraphy/', null=True, blank=True)
+
+	def publish(self):
+		self.save()
+
+	def __str__(self):
+		return self.description
+
+
+class Photography(models.Model):
+	description = models.TextField(default='')
+	image = models.ImageField(upload_to='media/photography/', null=True, blank=True)
+
+	def publish(self):
+		self.save()
+
+	def __str__(self):
+		return self.description

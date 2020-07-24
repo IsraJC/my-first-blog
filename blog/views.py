@@ -10,12 +10,16 @@ from .models import Education
 from .forms import EducationForm
 from .models import Activity
 from .forms import ActivityForm
+from .models import Calligraphy
+from .models import Photography
 from django.shortcuts import redirect
 
 # Create your views here.
 def home_page(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
-	return render(request, 'blog/home_page.html', {'posts': posts})
+	calligraphy = Calligraphy.objects.all()
+	photography = Photography.objects.all()
+	return render(request, 'blog/home_page.html', {'posts': posts, 'calligraphy': calligraphy, 'photography': photography})
 
 def post_list(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')

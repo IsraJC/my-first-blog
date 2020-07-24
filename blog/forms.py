@@ -4,6 +4,8 @@ from .models import CV
 from .models import WorkExperience
 from .models import Education
 from .models import Activity
+from .models import Calligraphy
+from .models import Photography
 
 class PostForm(forms.ModelForm):
 
@@ -38,3 +40,17 @@ class ActivityForm(forms.ModelForm):
 	class Meta:
 		model = Activity
 		fields = ("title", "description",)
+
+
+class CalligraphyForm(forms.ModelForm):
+
+	class Meta:
+		model = Calligraphy
+		fields = ("description", "image", )
+
+
+class PhotographyForm(forms.ModelForm):
+
+	class Meta:
+		model = Photography
+		fields = ("description", "image", )
