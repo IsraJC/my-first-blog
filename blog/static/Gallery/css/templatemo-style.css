@@ -525,7 +525,7 @@ figure.effect-sadie:hover p {
     position: relative;
     display: block;
     max-width: 100%;
-    opacity: 0.8;
+    opacity: 1.0;
 }
 
 .cd-hero-slider h2 { font-size: 1.5em; }
@@ -544,6 +544,10 @@ figure.effect-sadie:hover p {
     opacity: 0;
 	-webkit-transform: translate3d(0,10px,0);
 	transform: translate3d(0,10px,0);
+}
+
+.tm-figure-description {
+	vertical-align: text-bottom!important ;
 }
 
 .cd-hero-slider .selected .cd-full-width figure.effect-sadie:hover .tm-figure-title,
@@ -664,7 +668,8 @@ figure.effect-sadie:hover p {
 		max-width: 1200px;
 	}
 
-	.grid-item { width: 25%; }	
+	.grid-item { width: 16.6%; }
+	#photography-gallery { width: 25%; }
 	.grid-item figure figcaption { padding: 1em; }	
 }
 

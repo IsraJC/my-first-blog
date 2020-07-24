@@ -102,35 +102,69 @@
 		<div class="col-md-8">
 			<div id="about-me-container" class="about-me">
 				<h2 id="about-me-title">About Me</h2>
-				<p id="about-me-text">Hi! I'm Isra and I'm an undergrad student, completing a degree in Computer Science at the University of Birmingham. I'm also currently employed by PwC as a degree apprentice. I am very passionate about programming and all things tech. I am especially involved in activities and initiatives focused on encouraging women in STEM and Computer Science. Outside of tech, my hobbies include calligraphy, photography, playing video games and playing the piano! </p>
+				<p id="about-me-text">Hi! I'm Isra and I'm an undergrad student, completing a degree in Computer Science at the University of Birmingham. I'm also currently employed by PwC as a degree apprentice. I am very passionate about programming and all things tech. I am especially involved in activities and initiatives focused on encouraging women in STEM and Computer Science. Outside of tech, my hobbies include calligraphy, photography, playing video games and playing the piano! Check out some of my calligraphy and photography below!</p>
 			</div>
 	    </div>
 		<div class="col-md-2"></div>
 	</div>
 
+	<div id="gallery-title-container" class="container-fluid">
+		<h2 class="gallery-title">Calligraphy</h2>
+	</div>
 
 	<!-- Calligraphy gallery -->
-        <div class="cd-hero">
-			<div class="cd-full-width">
-                <div class="container-fluid js-tm-page-content" data-page-no="1" data-page-type="gallery">
-                    <div class="tm-img-gallery-container">
-                        <div class="tm-img-gallery gallery-one">
-                        <!-- Gallery One pop up connected with JS code below -->
-							{% for piece in calligraphy %}
-                            <div class="grid-item">
-                                <figure class="effect-sadie">
-                                    <img src="{{ piece.image.url }}" alt="Image" class="img-fluid tm-img">
-                                    <figcaption>
-                                        <p class="tm-figure-description">{{ piece.description }}</p>
-                                        <a href="{{ piece.image.url }}">View more</a>
-                                    </figcaption>           
-                                </figure>
-                            </div>
-							{% endfor %}
-                        </div>                                 
-                    </div>
-                </div>                                                    
-            </div>                    
+    <div class="cd-hero">
+		<div class="cd-full-width">
+            <div class="container-fluid js-tm-page-content" data-page-no="1" data-page-type="gallery">
+                <div class="tm-img-gallery-container">
+                    <div class="tm-img-gallery gallery-one">
+                    <!-- Gallery One pop up connected with JS code below -->
+						{% for piece in calligraphy %}
+                        <div class="grid-item">
+                            <figure class="effect-sadie">
+                                <img src="{{ piece.image.url }}" alt="Image" class="img-fluid tm-img">
+                                <figcaption>
+                                    <p class="tm-figure-description">{{ piece.description }}</p>
+                                    <a href="{{ piece.image.url }}">View more</a>
+                                </figcaption>           
+                            </figure>
+                        </div>
+						{% endfor %}
+                    </div>                                 
+                </div>
+            </div>                                                    
+        </div>
+	</div>
+
+	<div id="gallery-title-container" class="container-fluid">
+		<h2 class="gallery-title" id="photography-title">Photography</h2>
+	</div>
+
+	<!-- Photography gallery -->
+    <div class="cd-hero">
+		<div class="cd-full-width">
+            <div class="container-fluid js-tm-page-content" data-page-no="1" data-page-type="gallery">
+                <div class="tm-img-gallery-container">
+                    <div class="tm-img-gallery gallery-one">
+                    <!-- Gallery One pop up connected with JS code below -->
+						{% for photo in photography %}
+                        <div class="grid-item" id="photography-gallery">
+                            <figure class="effect-sadie">
+                                <img src="{{ photo.image.url }}" alt="Image" class="img-fluid tm-img">
+                                <figcaption>
+                                    <p class="tm-figure-description">{{ photo.description }}</p>
+                                    <a href="{{ photo.image.url }}">View more</a>
+                                </figcaption>           
+                            </figure>
+                        </div>
+						{% endfor %}
+                    </div>                                 
+                </div>
+            </div>                                                    
+        </div>
+	</div>
+			
+
 
 
 
