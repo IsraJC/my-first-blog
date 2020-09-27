@@ -57,7 +57,7 @@ class NewVisitorTest(unittest.TestCase):
 		time.sleep(1)
 
 
-	def login(self, username="israjc", password="superpassword"):
+	def login(self, username="israjc", password="**********"):
 		username_el = self.browser.find_element_by_id("id_username")
 		username_el.send_keys(username)
 		password_el = self.browser.find_element_by_id("id_password")
